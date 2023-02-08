@@ -1,0 +1,83 @@
+$base-font-size:15px;
+
+// Media queries
+@mixin device($type) {
+    @if $type == desktop {
+		@media (min-width: 1250px) {
+			@content;
+		}
+	}
+    @else if $type == mobile {
+		@media (max-width: 1249px) {
+			@content;
+		}
+	}
+    @else if $type == tablet {
+		@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait), (min-width: 1024px) and (max-width: 1249px) and (orientation: landscape) {
+			@content;
+		}
+	}
+	@else if $type == phone {
+		@media (max-width: 767px) and (orientation: portrait), (max-width: 1023px) and (orientation: landscape) {
+			@content;
+		}
+	}
+    @else if $type == phoneY {
+		@media (max-width: 767px) and (orientation: portrait) {
+			@content;
+		}
+	}
+     @else if $type == phoneX {
+		@media (max-width: 1023px) and (orientation: landscape) {
+			@content;
+		}
+    }
+    @else if $type == tabletY {
+		@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+			@content;
+		}
+	}
+    @else if $type == tabletX {
+		@media (min-width: 1024px) and (max-width: 1249px) and (orientation:landscape) {
+			@content;
+		}
+	}
+}
+
+// Responsive
+@mixin responsive($arg) {
+    @each $device, $values in $arg {
+        @include device($device) {
+            @each $property, $value in $values {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+// Convert px to rem
+@function rem($number) {
+    // Strip unit
+    $number: calc($number / ($number * 0 + 1));
+    $base-font-size: $base-font-size / ($base-font-size * 0 + 1);
+    // Value
+	@return #{($number / $base-font-size) + 'rem'};
+}
+
+// Convert px to vw
+@function vw($number) {
+    // Strip unit
+    $number:calc( $number / ($number * 0 + 1));
+    $mockup-width: 1920;
+    // Value
+	@return #{calc(($number / $mockup-width) * 100) + 'vw'};
+}
+
+// Convert px to %
+@function percent($number) {
+    // Strip unit
+    $number: calc($number / ($number * 0 + 1));
+    $container-width: 1920;
+    // Value
+	@return #{calc(($number / $container-width) * 100) + '%'};
+}

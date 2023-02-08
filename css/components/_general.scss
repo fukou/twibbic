@@ -1,0 +1,97 @@
+@import '../config/mixins';
+
+body {
+    font-family: $body-font;
+}
+
+.content {
+    &__hero {
+        background: rgb(55,81,126);
+        background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
+        margin-bottom: vw(50);
+        
+        &__container {
+            min-height: 600px;
+        }
+
+        &__desc {
+            max-width: 50%;
+
+            :where(h1,h2) {
+                font-size: rem(48);
+                font-weight: 800;
+                line-height: 1.25;
+                margin-bottom: rem(24);
+                background: linear-gradient(80deg,$color-white 22.73%,$color-secondary 188.41%);
+                background-clip: border-box;
+                background-clip: text;
+                -webkit-background-clip: text;
+                text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+
+            p {
+                font-size: rem(16);
+
+                color:$color-white;
+            }
+        }
+    }
+
+    &__popular {
+        &__heading {
+            &__text {
+                h1 {
+                    margin-bottom: rem(8);
+                    span {
+                        background: linear-gradient(80deg,$color-primary 22.73%,$color-secondary 188.41%);
+                        background-clip: border-box;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        text-fill-color: transparent;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+                p {
+                    color:$color-grey-dark;
+                }
+            }
+            &__view {
+                font-size: rem(16);
+                > * {
+                    font-size: inherit;
+                }
+            }
+        }
+        &__slider {
+            padding:rem(24) 0;
+            .tns-ovh {
+                height: 100%!important;
+                padding:rem(5) rem(1);
+            }
+            .tns-nav {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap:rem(12);
+                padding:rem(32) 0;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: rem(16);
+                    height: rem(16);
+
+                    border-radius: 50%;
+
+                    background-color: $color-grey;
+
+                    &.tns-nav-active {
+                        background-color: $color-primary;
+                    }
+                }
+            }
+        }
+    }
+}

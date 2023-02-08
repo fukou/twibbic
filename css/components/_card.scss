@@ -1,0 +1,47 @@
+@import '../config/mixins';
+
+.card {
+    padding:0 rem(1);
+    overflow: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+    &__body {
+        background-color: $color-white;
+        padding:rem(16) rem(24);
+    }
+
+    &__title {
+        font-size: rem(18);
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap:rem(8);
+        margin:rem(12) 0;
+        padding:rem(12) 0 0 0;
+
+        border-top: 1px solid $color-grey;
+
+        img {
+            max-height: rem(32);
+            border-radius: 50%;
+        }
+    }
+
+    &__info {
+        color:$color-grey-dark;
+        &__item {
+            display: flex;
+            align-items: center;
+            gap:rem(8);
+        }
+    }
+}
