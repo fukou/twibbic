@@ -1,0 +1,58 @@
+.footer {
+    background: $color-primary;
+    background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
+
+    color:$color-white;
+    padding:vw(70) 0;
+
+    &__inner {
+        gap:rem(26);
+    }
+
+    &__logo {
+        max-height: rem(40);
+        margin-bottom: rem(18);
+    }
+
+    &__item {
+        h2 {
+            font-size: rem(24);
+            margin-bottom: rem(18);
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        gap:rem(12);
+    }
+
+    &__socmed {
+        display: flex;
+        align-items: center;
+        gap:rem(12);
+
+        list-style: none;
+        margin-top: rem(24);
+
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: rem(32);
+                height: rem(32);
+
+                font-size: rem(18);
+
+                background-color: $color-white;
+                color:$color-primary;
+                border-radius: 50%;
+
+                text-decoration: none;
+            }
+        }
+    }
+}

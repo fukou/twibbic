@@ -6,7 +6,7 @@ body {
 
 .content {
     &__hero {
-        background: rgb(55,81,126);
+        background: $color-primary;
         background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
         margin-bottom: vw(50);
         
@@ -68,6 +68,9 @@ body {
             .tns-ovh {
                 height: 100%!important;
                 padding:rem(5) rem(1);
+            }
+            .tns-controls {
+                display: none;
             }
             .tns-nav {
                 display: flex;
