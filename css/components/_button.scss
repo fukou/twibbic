@@ -85,7 +85,8 @@
         background-color: rgba($color-secondary, 1);
         color:rgba($color-white, 1);
         &:hover {
-            background-color: darken($color-secondary, 20%);
+            background-color: lighten($color-secondary, 20%);
+            color:darken($color-white, 90%);
         }
     }
 }
