@@ -9,13 +9,35 @@ body {
         background: $color-primary;
         background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
         margin-bottom: vw(50);
+        overflow: hidden;
         
         &__container {
             min-height: 600px;
+            $arg: (
+                tablet: (
+                    
+                ),
+                phone: (
+                    flex-direction:column,
+                    padding:rem(25)
+                )
+            );
+
+            @include responsive($arg);
         }
 
         &__desc {
             max-width: 50%;
+            $arg: (
+                tablet: (
+                    max-width:100%
+                ),
+                phone: (
+                    max-width:100%
+                )
+            );
+
+            @include responsive($arg);
 
             :where(h1,h2) {
                 font-size: rem(48);
@@ -28,18 +50,51 @@ body {
                 -webkit-background-clip: text;
                 text-fill-color: transparent;
                 -webkit-text-fill-color: transparent;
+                $arg: (
+                    tablet: (
+                      font-size:rem(36)  
+                    ),
+                    phone: (
+                        font-size:rem(32)  
+                    )
+                );
+
+                @include responsive($arg);
             }
 
             p {
                 font-size: rem(16);
 
                 color:$color-white;
+                $arg: (
+                    tablet: (
+                      font-size:rem(15)  
+                    ),
+                    phone: (
+                        font-size:rem(15)  
+                    )
+                );
+                @include responsive($arg);
             }
+        }
+
+        &__img {
+            margin-bottom: rem(-100);
         }
     }
 
-    &__popular {
+    &__frame {
         &__heading {
+            $arg: (
+                tablet: (
+                    flex-direction:column
+                ),
+                phone: (
+                    flex-direction:column
+                )
+            );
+
+            @include responsive($arg);
             &__text {
                 h1 {
                     margin-bottom: rem(8);
@@ -96,5 +151,18 @@ body {
                 }
             }
         }
+        &--background {
+            background-color: lighten($color-primary, 60%);
+        }
+        $arg: (
+            tablet: (
+                padding:rem(20)
+            ),
+            phone: (
+                padding:rem(20)
+            )
+        );
+
+        @include responsive($arg);
     }
 }

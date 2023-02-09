@@ -1,3 +1,5 @@
+@import '../config/mixins';
+
 .footer {
     background: $color-primary;
     background: linear-gradient(101deg, $color-primary 0%, $color-secondary 100%); 
@@ -7,6 +9,17 @@
 
     &__inner {
         gap:rem(26);
+        $arg: (
+            tablet: (
+                padding:rem(30)
+            ),
+            phone: (
+                flex-direction:column,
+                padding:rem(20)
+            )
+        );
+
+        @include responsive($arg);
     }
 
     &__logo {

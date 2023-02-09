@@ -1,8 +1,23 @@
 @import '../config/mixins';
 
 .header {
+    position: sticky;
+    top:0rem;
     border-bottom: 1px solid $color-grey;
-    
+    background-color: $color-white;
+
+    z-index: 5;
+
+    $arg: (
+        tablet: (
+            padding:rem(10) rem(15)
+        ),
+        phone: (
+            padding:rem(10) rem(20)
+        )
+    );
+
+    @include responsive($arg);
 
     &__logo {
         img {
@@ -58,12 +73,29 @@
         padding:0;
 
         gap:vw(16);
+        $arg: (
+            tablet: (
+                    
+            ),
+            phone: (
+                position:absolute,
+                left:0,
+                top:100%,
+                width:100%,
+                background-color:$color-white,
+                justify-content:center,
+                visibility:hidden,
+                opacity:0
+            )
+        );
+
+        @include responsive($arg);
         
         &__item {
             a {
                 display: inline-flex;
                 align-items: center;
-                padding:rem(28) vw(5);
+                padding:rem(28) rem(8);
 
                 text-decoration: none;
 
@@ -85,5 +117,28 @@
                 }
             }
         }
+    }
+
+    &__hamburger {
+        $arg: (
+            desktop: (
+                display:none
+            ),
+            tablet: (
+                display:flex
+            ),
+            phone: (
+                display:flex
+            )
+        );
+
+        @include responsive($arg);
+
+        align-items: center;
+        justify-content: center;
+
+        width: rem(40);
+        height: rem(40);
+        border-radius: 50%;
     }
 }
