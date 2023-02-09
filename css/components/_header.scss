@@ -21,7 +21,19 @@
 
     &__logo {
         img {
-            max-height:rem(25)
+            $arg: (
+                desktop: (
+                    max-height:rem(25)
+                ),
+                tablet: (
+                    max-height:rem(20)
+                ),
+                phone: (
+                    max-height:rem(15)
+                )
+            );
+
+            @include responsive($arg);
         }
     }
 
@@ -75,7 +87,14 @@
         gap:vw(16);
         $arg: (
             tablet: (
-                    
+                position:absolute,
+                left:0,
+                top:100%,
+                width:100%,
+                background-color:$color-white,
+                justify-content:center,
+                visibility:hidden,
+                opacity:0    
             ),
             phone: (
                 position:absolute,
@@ -92,7 +111,7 @@
         @include responsive($arg);
         
         &__item {
-            a {
+            a:not(.btn) {
                 display: inline-flex;
                 align-items: center;
                 padding:rem(28) rem(8);
@@ -111,10 +130,14 @@
             }
 
             &--active {
-                a {
+                a:not(.btn) {
                     color:$color-primary;
                     border-bottom: 3px solid $color-primary;
                 }
+            }
+
+            &--button {
+                margin-left: rem(12);
             }
         }
     }
