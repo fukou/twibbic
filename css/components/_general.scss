@@ -165,4 +165,109 @@ body {
 
         @include responsive($arg);
     }
+    
+    &__cta {
+        padding:vw(80) 0;
+
+        background:lighten($color-secondary, 30%);
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+
+            h2 {
+                max-width: vw(800);
+
+                text-align: center;
+                background: linear-gradient(80deg,$color-primary 22.73%,$color-secondary 188.41%);
+                background-clip: border-box;
+                background-clip: text;
+                -webkit-background-clip: text;
+                text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
+
+                $arg: (
+                    tablet: (
+                        max-width:90%
+                    ),
+                    phone: (
+                        max-width:100%,
+                        padding:0 rem(16)
+                    )
+                );
+
+                @include responsive($arg);
+            }
+        }
+    }
+
+    &__blog {
+        $arg: (
+            tablet: (
+                padding:rem(20)
+            ),
+            phone: (
+                padding:rem(20)
+            )
+        );
+
+        @include responsive($arg);
+        &__heading {
+            $arg: (
+                tablet: (
+                    flex-direction:column
+                ),
+                phone: (
+                    flex-direction:column
+                )
+            );
+
+            @include responsive($arg);
+            &__text {
+                h1 {
+                    margin-bottom: rem(8);
+                    span {
+                        background: linear-gradient(80deg,$color-primary 22.73%,$color-secondary 188.41%);
+                        background-clip: border-box;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        text-fill-color: transparent;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+                p {
+                    color:$color-grey-dark;
+                }
+            }
+            &__view {
+                font-size: rem(16);
+                > * {
+                    font-size: inherit;
+                }
+            }
+        }
+
+        &__inner {
+            display: grid;
+            $arg: (
+                desktop: (
+                    grid-template-columns:repeat(3, 1fr),
+                    gap:rem(24)
+                ),
+                tablet: (
+                    grid-template-columns:repeat(2, 1fr),
+                    gap:rem(16)
+                ),
+                phone: (
+                    grid-template-columns:repeat(1, 1fr),
+                    gap:rem(24)
+                )
+            );
+
+            @include responsive($arg);
+        }
+    }
 }

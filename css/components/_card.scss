@@ -44,4 +44,23 @@
             gap:rem(8);
         }
     }
+
+    &__blog {
+        background-color: $color-white;
+        padding:rem(16) rem(24);
+        &__title {
+            font-size: rem(18);
+            margin-bottom: rem(12);
+        }
+        &__text {
+            color:$color-grey-dark;
+            font-size: rem(14);
+        }
+        .btn__wrapper {
+            margin-top: rem(26);
+            > * {
+                font-size: rem(12);
+            }
+        }
+    }
 }
