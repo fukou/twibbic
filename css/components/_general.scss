@@ -449,4 +449,41 @@ body {
             }
         }
     }
+
+    &__faq {
+        &__heading {
+            $arg: (
+                tablet: (
+                    flex-direction:column
+                ),
+                phone: (
+                    flex-direction:column
+                )
+            );
+
+            @include responsive($arg);
+            &__text {
+                h1 {
+                    margin-bottom: rem(8);
+                    span {
+                        background: linear-gradient(80deg,$color-primary 22.73%,$color-secondary 188.41%);
+                        background-clip: border-box;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        text-fill-color: transparent;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+                p {
+                    color:$color-grey-dark;
+                }
+            }
+            &__view {
+                font-size: rem(16);
+                > * {
+                    font-size: inherit;
+                }
+            }
+        }
+    }
 }
