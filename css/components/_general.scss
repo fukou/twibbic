@@ -270,4 +270,52 @@ body {
             @include responsive($arg);
         }
     }
+
+    &__heading {
+        padding:vw(80) 0;
+
+        background:lighten($color-secondary, 30%);
+
+        display: grid;
+        grid-template-columns:1fr min(1140px, 100%) 1fr;
+
+        $arg: (
+            tablet: (
+                padding:rem(80) rem(20)
+            ),
+            phone: (
+                padding:rem(50) rem(20)
+            )
+        );
+
+        @include responsive($arg);
+
+        > * {
+            grid-column: 2;
+
+        }
+
+        &__image {
+            width: 100%;
+            grid-column: 1 / 4;
+
+            &-bg-white {
+                background-color: $color-white;
+                padding: rem(60) 0;
+            }
+        }
+
+        &__title {
+            &--big {
+                font-size: rem(64);
+                color:$color-primary;
+            }
+            &--medium {
+                font-size: rem(36);
+            }
+            ~ p {
+                margin-top: rem(8);
+            }
+        }
+    }
 }
