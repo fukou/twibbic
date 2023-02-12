@@ -308,10 +308,16 @@ body {
         &__title {
             &--big {
                 font-size: rem(64);
-                color:$color-primary;
+                background: linear-gradient(10deg,$color-primary 3%,$color-secondary 57%);
+                background-clip: border-box;
+                background-clip: text;
+                -webkit-background-clip: text;
+                text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
             }
             &--medium {
                 font-size: rem(36);
+                color:$color-primary;
             }
             ~ p {
                 margin-top: rem(8);
