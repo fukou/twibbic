@@ -7,6 +7,7 @@ Last updated: 8/2/2023
 var app = {
     init: function () {
         app.tinySlider();
+        app.accordion();
     },
     tinySlider: () => {
         var container = '.slideshow';
@@ -97,6 +98,24 @@ var app = {
                 });
             });
         }
+    },
+    accordion: () => {
+        const items = document.querySelectorAll(".accordion > .accordion-item > div");
+
+        function toggleAccordion() {
+        // const itemToggle = this.getAttribute("aria-expanded");
+        const itemToggle = this.classList.contains("expanded");
+
+        for (i = 0; i < items.length; i++) {
+            items[i].classList.remove("expanded");
+        }
+
+        if (!itemToggle) {
+            this.classList.add("expanded");
+        }
+        }
+
+        items.forEach((item) => item.addEventListener("click", toggleAccordion));
     },
 };
   

@@ -2,6 +2,67 @@
 
 body {
     font-family: $body-font;
+
+    &.bg-light-blue {
+        background:lighten($color-secondary, 35%);
+    }
+}
+
+.custom-file {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: calc(1em + 1.75rem + 2px);
+    margin-bottom: 0;
+    &-input {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: calc(1em + 1.75rem + 2px);
+        margin: 0;
+        opacity: 0;
+
+        
+        &:lang(en) ~ .custom-file-label::after {
+            content: "Browse";
+        }
+    }
+    &-label {
+        display: inline-block;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+        height: calc(1em + 1.75rem + 2px);
+        padding: 0.875rem 1.125rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        border: 1px solid #c5ccd6;
+        border-radius: 0.35rem;
+
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            display: block;
+            height: calc(1em + 1.75rem);
+            padding: 0.875rem 1.125rem;
+            line-height: 1;
+            color: #69707a;
+            content: "Browse";
+            background-color: #ced4da;
+            border-left: inherit;
+            border-radius: 0 0.35rem 0.35rem 0;
+        }
+    }
 }
 
 .content {
@@ -321,6 +382,70 @@ body {
             }
             ~ p {
                 margin-top: rem(8);
+            }
+        }
+    }
+
+    &__single {
+        $arg: (
+            tablet: (
+                padding:rem(20)
+            ),
+            phone: (
+                padding:rem(20)
+            )
+        );
+
+        @include responsive($arg);
+        &__inner {
+            z-index: 1;
+            max-width: 540px;
+            margin:0 auto;
+        }
+        &__user {
+            max-width: 80px;
+            margin:0 auto;
+
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        &__content {
+            text-align: center;
+
+            h1 {
+                background: linear-gradient(90deg,$color-primary 20%,$color-secondary 57%);
+                background-clip: border-box;
+                background-clip: text;
+                -webkit-background-clip: text;
+                text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
+            }
+
+            p {
+                color:$color-grey-dark;
+            }
+        }
+        &__link {
+            display: inline-flex;
+            align-items: center;
+            gap:rem(6);
+
+            text-decoration: none;
+
+            max-width: 300px;
+
+            font-size: rem(13);
+
+            background-color: $color-primary;
+            color:$color-white;
+            padding:rem(6) rem(12);
+
+            border-radius: rem(30);
+
+            span {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
     }
