@@ -8,6 +8,8 @@ var app = {
     init: function () {
         app.tinySlider();
         app.accordion();
+        app.modal();
+        app.copyToClipboard();
     },
     tinySlider: () => {
         var container = '.slideshow';
@@ -103,20 +105,37 @@ var app = {
         const items = document.querySelectorAll(".accordion > .accordion-item > div");
 
         function toggleAccordion() {
-        // const itemToggle = this.getAttribute("aria-expanded");
-        const itemToggle = this.classList.contains("expanded");
+            // const itemToggle = this.getAttribute("aria-expanded");
+            const itemToggle = this.classList.contains("expanded");
 
-        for (i = 0; i < items.length; i++) {
-            items[i].classList.remove("expanded");
-        }
+            for (i = 0; i < items.length; i++) {
+                items[i].classList.remove("expanded");
+            }
 
-        if (!itemToggle) {
-            this.classList.add("expanded");
-        }
+            if (!itemToggle) {
+                this.classList.add("expanded");
+            }
         }
 
         items.forEach((item) => item.addEventListener("click", toggleAccordion));
     },
+    modal:() => {
+        MicroModal.init();
+    },
+    copyToClipboard:() => {
+        let copyText = document.querySelector("[class*='copy-text']");
+        copyText.querySelector("button").addEventListener("click", function () {
+            let input = copyText.querySelector("input.text");
+            input.select();
+            document.execCommand("copy");
+            copyText.classList.add("active");
+            window.getSelection().removeAllRanges();
+            setTimeout(function () {
+                copyText.classList.remove("active");
+            }, 1500);
+        });
+
+    }
 };
   
 document.addEventListener("DOMContentLoaded", () => {

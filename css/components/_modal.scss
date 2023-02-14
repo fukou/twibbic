@@ -1,0 +1,148 @@
+.micromodal {
+    display: none;
+  
+    &.is-open {
+      display: block;
+    }
+  
+    &__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+
+      z-index: 999;
+    }
+  
+    &__container {
+      box-sizing: border-box;
+      overflow-y: auto;
+      max-width: rem(650);
+      max-height: 100vh;
+      background-color: $color-white;
+      border-radius: rem(8);
+
+      h2 {
+        font-size: rem(18);
+        text-align: center;
+
+        padding:rem(20);
+        border-bottom: 1px solid #ddd;
+      }
+    }
+
+    &__copy-text {
+        position: relative;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: rem(10);
+        display: flex;
+        padding: rem(10);
+        margin:rem(20);
+        transition: 0.5s;
+        &:hover {
+            background-color: #ddd;
+            input.text {
+                background-color: #ddd;
+            }
+        }
+        input.text {
+            font-size: rem(14);
+            color: #555;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding:0 rem(12);
+            transition: 0.5s;
+        }
+        &.active {
+            button {
+                &::before, &::after {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        button {
+            padding: rem(10);
+            background: $color-primary;
+            color: #fff;
+            font-size: rem(13);
+            border: none;
+            outline: none;
+            border-radius: rem(10);
+            cursor: pointer;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap:rem(8);
+
+            min-width: rem(120);
+
+            &:active {
+                background: darken($color-primary, 50%);
+            }
+
+            &::before {
+                content: "Copied";
+                position: absolute;
+
+                width: 100%;
+                height: 100%;
+                top: rem(0);
+                left:rem(0);
+                background: rgba(0, 0, 0, 0.65);
+                padding:rem(10);
+                border-radius: rem(8);
+                font-size: rem(15);
+
+                line-height: rem(38);
+
+                backdrop-filter: blur(8px);
+                
+                opacity: 0;
+                visibility: hidden;
+
+                transition: 0.35s;
+            }
+        }        
+    }
+  
+    &[aria-hidden="false"] {
+      .micromodal__overlay {
+        animation: microModalFadeIn 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+      }
+      .micromodal__container {
+        animation: microModalSlideIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  
+    .micromodal__container, .micromodal__overlay {
+      will-change: transform;
+    }
+  }
+  
+  @keyframes microModalFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes microModalSlideIn {
+    from {
+      transform: translateY(15%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
