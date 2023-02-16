@@ -1,6 +1,7 @@
 @import '../config/mixins';
 
 .card {
+    display: block;
     padding:0 rem(1);
     overflow: hidden;
     border-radius: 8px;
@@ -10,6 +11,8 @@
     transition: 0.4s;
 
     text-decoration: none;
+
+    color:$color-black;
 
     &:hover {
         transform: translateY(-4px);

@@ -120,7 +120,9 @@ var app = {
         items.forEach((item) => item.addEventListener("click", toggleAccordion));
     },
     modal:() => {
-        MicroModal.init();
+        MicroModal.init({
+            disableScroll:true
+        });
     },
     copyToClipboard:() => {
         let copyText = document.querySelector("[class*='copy-text']");
