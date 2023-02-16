@@ -1,15 +1,34 @@
 /*
 Author: Faiz Ichsan Jaya
-Last updated: 8/2/2023
+Last updated: 16/2/2023
 
 */
 
 var app = {
-    init: function () {
+    init: function () { 
+        app.mobileNavigation();
         app.tinySlider();
         app.accordion();
         app.modal();
         app.copyToClipboard();
+    },
+    mobileNavigation:() => {
+        const btnHamburger = document.querySelector('button[data-type-button="hamburger"]');
+        const wrapperMenu = document.querySelector('.header__menu');
+
+        const isButtonExist = btnHamburger;
+        if(typeof(isButtonExist) != 'undefined' && isButtonExist != null) {
+
+            btnHamburger.addEventListener("click", function() {
+                wrapperMenu.classList.toggle("is-shown");
+                this.closest("header").classList.toggle("is-changed");
+                if(wrapperMenu.classList.contains('is-shown')) {
+                    this.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+                } else {
+                    this.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+                }
+            });
+        }
     },
     tinySlider: () => {
         var container = '.slideshow';
