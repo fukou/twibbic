@@ -451,6 +451,15 @@ body {
     }
 
     &__faq {
+        $arg: (
+            tablet: (
+                padding:rem(20)
+            ),
+            phone: (
+                padding:rem(20)
+            )
+        );
+        @include responsive($arg);
         &__heading {
             $arg: (
                 tablet: (

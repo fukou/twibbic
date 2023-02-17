@@ -16,3 +16,15 @@ $body-font:'Plus Jakarta Sans', sans-serif;
 .bg-white {
     background-color: $color-white;
 }
+
+.bg-light-blue {
+    background:lighten($color-secondary, 30%);
+}
+
+.bg-primary {
+    background:$color-primary;
+}
+
+.bg-secondary {
+    background:$color-secondary;
+}
