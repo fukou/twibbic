@@ -23,13 +23,13 @@
         img {
             $arg: (
                 desktop: (
-                    max-height:rem(25)
+                    max-height:rem(50)
                 ),
                 tablet: (
-                    max-height:rem(20)
+                    max-height:rem(35)
                 ),
                 phone: (
-                    max-height:rem(15)
+                    max-height:rem(35)
                 )
             );
 
