@@ -330,6 +330,30 @@ body {
 
             @include responsive($arg);
         }
+
+        &__wrapper {
+            display: grid;
+            grid-template-columns: auto 350px;
+            grid-auto-rows: minmax(min-content, max-content);
+            gap:rem(32);
+            min-height: 0;
+            min-width: 0;
+            $arg: (
+                tablet: (
+                    grid-template-columns: auto 300px
+                ),
+                phone: (
+                    grid-template-columns: 1fr
+                )
+            );
+
+            @include responsive($arg);
+
+            .card {
+                overflow: hidden;
+                min-width: 0; 
+            }
+        }
     }
 
     &__heading {

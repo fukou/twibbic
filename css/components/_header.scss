@@ -64,6 +64,9 @@
         &__input {
             padding:rem(14) rem(80) rem(15) rem(20);
             border:0;
+            &:placeholder-shown {
+                text-overflow: ellipsis;
+            }
         }
 
         &__button {

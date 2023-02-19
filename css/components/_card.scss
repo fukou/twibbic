@@ -82,4 +82,33 @@
             }
         }
     }
+
+    &__lists {
+        display: grid;
+        grid-template-columns: rem(60) 1fr;
+        gap:rem(20);
+        padding:rem(12);
+        border-bottom: 1px solid rgba($color-grey-dark, 0.25);
+
+        text-decoration: none;
+        color:$color-black;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgba($color-grey-dark, 0.25);
+        }
+
+        .card__blog {
+            padding:0;
+            background-color: transparent;
+            &__title {
+                font-size: rem(14);
+                margin-bottom: rem(8);
+            }
+            &__text {
+                font-size: rem(12);
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
 }
