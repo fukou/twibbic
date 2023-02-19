@@ -89,7 +89,7 @@
 
             +.accordion-content {
                 opacity: 1;
-                max-height: 9em;
+                max-height: 9999px;
                 transition: all 200ms linear;
                 will-change: opacity, max-height;
             }
@@ -110,7 +110,7 @@
 
         p {
             font-size: 1rem;
-            margin: 2em 0;
+            margin: 1em 0;
         }
 
         a {
