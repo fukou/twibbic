@@ -99,8 +99,9 @@
                 width:100%,
                 background-color:$color-white,
                 justify-content:center,
+                flex-direction:column,
                 visibility:hidden,
-                opacity:0    
+                opacity:0
             ),
             phone: (
                 position:absolute,
@@ -110,6 +111,7 @@
                 background-color:$color-white,
                 justify-content:center,
                 visibility:hidden,
+                flex-direction:column,
                 opacity:0
             )
         );
@@ -122,6 +124,18 @@
         }
         
         &__item {
+            $arg: (
+                tablet: (
+                    width:100%
+                ),
+                phone: (
+                    width:100%,
+                    
+                    border-top:1px solid #eee
+                )
+            );
+
+            @include responsive($arg);
             a:not(.btn) {
                 display: inline-flex;
                 align-items: center;
@@ -138,6 +152,20 @@
                     border-color:$color-primary;
                     color:$color-primary;
                 }
+
+                
+                $arg: (
+                    tablet: (
+                        width:100%,
+                        padding:rem(8) rem(15)
+                    ),
+                    phone: (
+                        width:100%,
+                        padding:rem(8) rem(20),
+                    )
+                );
+
+                @include responsive($arg);
             }
 
             a {
@@ -150,11 +178,43 @@
                 a:not(.btn) {
                     color:$color-primary;
                     border-bottom: 3px solid $color-primary;
+
+                    $arg: (
+                        tablet: (
+                            border:0,
+                            background-color:lighten($color-primary, 60%)
+                        ),
+                        phone: (
+                            border:0,
+                            background-color:lighten($color-primary, 60%)
+                        )
+                    );
+
+                    @include responsive($arg);
                 }
             }
 
             &--button {
                 margin-left: rem(12);
+                $arg: (
+                    tablet: (
+                        margin:0,
+                        width:100%
+                    ),
+                    phone: (
+                        margin:0,
+                        width:100%
+                    )
+                );
+
+                @include responsive($arg);
+
+                @media (max-width:992px) {
+                    a {
+                        width: 100%;
+                        border-radius: 0;
+                    }
+                }
             }
         }
     }
